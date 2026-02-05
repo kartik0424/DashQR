@@ -92,7 +92,7 @@ document.getElementById("generateBtn").onclick = async () => {
   const data = await res.json()
 
   // 🌐 Gateway URL (PC IP for phone scanning)
-  const qrUrl = `http://192.168.1.4:5000/q/${data.shortCode}`
+  const qrUrl = `http://localhost:5000/q/${data.shortCode}`
 
   // 🎨 Update QR Preview
   qrCode.update({
