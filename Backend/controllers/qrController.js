@@ -28,7 +28,7 @@ exports.createQR = async (req, res) => {
 exports.getUserQRs = async (req, res) => {
   try {
     const qrs = await QRCode.find({ user: req.user._id })
-      .select("shortCode status totalScan originalUrl")
+      .select("shortCode status totalScan originalUrl design")
       .sort({ createdAt: -1 })
 
     res.json(qrs) // ALWAYS array
