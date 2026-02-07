@@ -70,7 +70,7 @@ document.getElementById("generateBtn").onclick = async () => {
   }
 
   // 🔗 Create QR in backend
-  const res = await fetch(`${API_BASE_URL}/api/qr`, {
+  const res = await fetch(`https://dashqr-backend.onrender.com/api/qr`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -92,7 +92,7 @@ document.getElementById("generateBtn").onclick = async () => {
   const data = await res.json()
 
   // 🌐 Gateway URL (PC IP for phone scanning)
-  const qrUrl = fetch(`${API_BASE_URL}/q/${data.shortCode}`
+  const qrUrl = fetch(`https://dashqr-backend.onrender.com/q/${data.shortCode}`
 
   // 🎨 Update QR Preview
   qrCode.update({
