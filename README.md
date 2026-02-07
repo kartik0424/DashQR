@@ -172,7 +172,6 @@ Replace:
 
 http://localhost:5000
 
-
 with:
 
 http://<your-local-ip>:5000
@@ -219,7 +218,9 @@ Production deployment (Render, Railway, MongoDB Atlas)
 # Author
 
 Kartik Kathalkar
+
 Full-Stack Developer
+
 Project built for learning and resume demonstration
 
 # Final Note
