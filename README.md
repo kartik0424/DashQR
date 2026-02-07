@@ -65,6 +65,7 @@ Secure logout
 Route protection on frontend pages
 
 # Technology Stack
+
 # Frontend
 
 HTML5
