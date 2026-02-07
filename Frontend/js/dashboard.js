@@ -47,7 +47,7 @@ async function loadQrs() {
       <tr>
         <td>${qr.shortCode}</td>
         <td>${qr.status}</td>
-        <td>${qr.totalScans}</td>
+        <td>${qr.totalScan}</td>
         <td class="d-flex gap-1">
           <button class="btn btn-info btn-sm"
             onclick="previewQR(${index})">
