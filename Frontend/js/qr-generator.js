@@ -70,7 +70,7 @@ document.getElementById("generateBtn").onclick = async () => {
   }
 
   // 🔗 Create QR in backend
-  const res = await fetch("http://localhost:5000/api/qr", {
+  const res = await fetch(`${API_BASE_URL}/api/qr`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -92,7 +92,7 @@ document.getElementById("generateBtn").onclick = async () => {
   const data = await res.json()
 
   // 🌐 Gateway URL (PC IP for phone scanning)
-  const qrUrl = `http://localhost:5000/q/${data.shortCode}`
+  const qrUrl = fetch(`${API_BASE_URL}/q/${data.shortCode}`
 
   // 🎨 Update QR Preview
   qrCode.update({
