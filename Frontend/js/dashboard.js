@@ -3,7 +3,7 @@ if (!localStorage.getItem("token")) {
 }
 
 const token = localStorage.getItem("token")
-const AP = "http://localhost:5000/api"
+const AP = "fetch(`${API_BASE_URL}/api"
 
 const qrTable = document.getElementById("qrTable")
 const qrPreviewBox = document.getElementById("qrPreviewBox")
@@ -68,7 +68,7 @@ function previewQR(shortCode, originalUrl) {
 
   qrPreviewBox.innerHTML = ""
 
-  const qrUrl = `http://192.168.29.164:5000/q/${shortCode}`
+  const qrUrl = `fetch(`${API_BASE_URL}/q/${shortCode}`
 
   const qrCode = new QRCodeStyling({
     width: 220,
