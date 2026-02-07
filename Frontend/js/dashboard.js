@@ -26,7 +26,6 @@ async function loadStats() {
 }
 
 // ================= QR LIST =================
-let qrList = []
 
 async function loadQrs() {
   const res = await fetch(`${AP}/qr`, {
