@@ -1,3 +1,5 @@
+let qrList = []
+
 if (!localStorage.getItem("token")) {
   window.location.href = "login.html"
 }
@@ -29,29 +31,27 @@ async function loadQrs() {
   })
   const qrs = await res.json()
 
+  if (!Array.isArray(data)) return
+
+  qrList = data
   qrTable.innerHTML = ""
 
-  qrs.forEach(qr => {
+  data.forEach((qr, index) => {
     qrTable.innerHTML += `
       <tr>
         <td>${qr.shortCode}</td>
         <td>${qr.status}</td>
-        <td>${qr.totalScan}</td>
-        <td class="d-flex gap-2">
-          <button onclick='previewQR(
-              "${qr.shortCode}",
-              ${JSON.stringify(qr.design).replace(/"/g, "&quot;")}
-            )'>
+        <td>${qr.totalScans}</td>
+        <td class="d-flex gap-1">
+          <button class="btn btn-info btn-sm"
+            onclick="previewQR(${index})">
             Preview
           </button>
-
-
           ${
             qr.status === "active"
               ? `<button class="btn btn-warning btn-sm" onclick="pauseQR('${qr._id}')">Pause</button>`
               : `<button class="btn btn-success btn-sm" onclick="resumeQR('${qr._id}')">Resume</button>`
           }
-
           <button class="btn btn-danger btn-sm"
             onclick="deleteQR('${qr._id}')">
             Delete
@@ -63,19 +63,20 @@ async function loadQrs() {
 }
 
 // ================= PREVIEW QR =================
-function previewQR(shortCode, design) {
-  if (!qrPreviewBox) return
+function previewQR(index) {
+  const qr = qrList[index]
+  if (!qr || !qrPreviewBox) return
 
   qrPreviewBox.innerHTML = ""
 
-  const qrUrl = `http://192.168.1.4:5000/q/${shortCode}`
+  const design = qr.design || {}
+  const qrUrl = `http://192.168.1.4:5000/q/${qr.shortCode}`
 
   let dotsOptions = {
     type: design.dotStyle || "square",
     color: design.color || "#000000"
   }
 
-  // Apply gradient if exists
   if (design.gradient && design.gradient.length === 2) {
     dotsOptions = {
       type: design.dotStyle || "square",
@@ -109,13 +110,11 @@ function previewQR(shortCode, design) {
   })
 
   qrCode.append(qrPreviewBox)
-
   qrPreviewUrl.innerText = qrUrl
 
-  const modal = new bootstrap.Modal(
+  new bootstrap.Modal(
     document.getElementById("qrPreviewModal")
-  )
-  modal.show()
+  ).show()
 }
 
 
