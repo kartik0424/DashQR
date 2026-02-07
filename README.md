@@ -65,7 +65,7 @@ Secure logout
 Route protection on frontend pages
 
 # Technology Stack
-Frontend
+# Frontend
 
 HTML5
 
@@ -77,7 +77,7 @@ Vanilla JavaScript
 
 qr-code-styling (QR rendering and customization)
 
-Backend
+# Backend
 
 Node.js
 
