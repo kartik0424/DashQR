@@ -3,7 +3,7 @@ if (!localStorage.getItem("token")) {
 }
 
 const token = localStorage.getItem("token")
-const AP = fetch(`https://dashqr-backend.onrender.com/api`
+const AP = "https://dashqr-backend.onrender.com/api"
 
 const qrTable = document.getElementById("qrTable")
 const qrPreviewBox = document.getElementById("qrPreviewBox")
