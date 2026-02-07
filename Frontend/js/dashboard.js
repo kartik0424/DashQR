@@ -1,4 +1,3 @@
-let qrList = []
 
 if (!localStorage.getItem("token")) {
   window.location.href = "login.html"
@@ -10,6 +9,8 @@ const AP = "https://dashqr-backend.onrender.com/api"
 const qrTable = document.getElementById("qrTable")
 const qrPreviewBox = document.getElementById("qrPreviewBox")
 const qrPreviewUrl = document.getElementById("qrPreviewUrl")
+
+let qrList = []
 
 // ================= STATS =================
 async function loadStats() {
