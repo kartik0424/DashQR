@@ -25,13 +25,19 @@ async function loadStats() {
 }
 
 // ================= QR LIST =================
+let qrList = []
+
 async function loadQrs() {
   const res = await fetch(`${AP}/qr`, {
     headers: { Authorization: `Bearer ${token}` }
   })
-  const qrs = await res.json()
 
-  if (!Array.isArray(data)) return
+  const data = await res.json()   // ✅ data is defined here
+
+  if (!Array.isArray(data)) {
+    console.error("Expected array, got:", data)
+    return
+  }
 
   qrList = data
   qrTable.innerHTML = ""
@@ -47,11 +53,13 @@ async function loadQrs() {
             onclick="previewQR(${index})">
             Preview
           </button>
+
           ${
             qr.status === "active"
               ? `<button class="btn btn-warning btn-sm" onclick="pauseQR('${qr._id}')">Pause</button>`
               : `<button class="btn btn-success btn-sm" onclick="resumeQR('${qr._id}')">Resume</button>`
           }
+
           <button class="btn btn-danger btn-sm"
             onclick="deleteQR('${qr._id}')">
             Delete
