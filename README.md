@@ -1,9 +1,9 @@
-DashQR — QR Code Generator & Analytics Platform
+# DashQR — QR Code Generator & Analytics Platform
 
 DashQR is a full-stack web application that allows users to generate customizable QR codes, manage their lifecycle, and track scan analytics through a centralized dashboard.
 The system is designed to mirror real-world QR SaaS platforms by routing all scans through a backend gateway before redirecting to the destination URL.
 
-Features
+# Features
 Authentication
 
 User registration and login
@@ -64,7 +64,7 @@ Secure logout
 
 Route protection on frontend pages
 
-Technology Stack
+# Technology Stack
 Frontend
 
 HTML5
@@ -97,9 +97,8 @@ MongoDB Compass
 
 Postman / Browser Fetch API
 
-ngrok (for testing QR scans across devices)
 
-Project Structure
+# Project Structure
 DashQR/
 │
 ├── Backend/
@@ -122,7 +121,7 @@ DashQR/
 ├── package.json
 └── README.md
 
-Environment Variables
+# Environment Variables
 
 Create a .env file in the root directory:
 
@@ -130,7 +129,7 @@ PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/dashqr
 JWT_SECRET=your_jwt_secret_key
 
-Getting Started
+# Getting Started
 Clone the Repository
 git clone https://github.com/your-username/dashqr.git
 cd dashqr
@@ -164,7 +163,7 @@ dashboard.html
 
 For best results, use a Live Server extension or similar local HTTP server.
 
-Testing QR Scans on Mobile Devices
+# Testing QR Scans on Mobile Devices
 
 localhost URLs do not work when scanning QR codes from a mobile device.
 
@@ -182,13 +181,13 @@ http://<your-local-ip>:5000
 
 Ensure both devices are on the same network.
 
-Option 2: ngrok (Recommended)
+Option 2: ngrok
 ngrok http 5000
 
 
 Use the generated public URL when creating QR codes.
 
-Key Learnings
+# Key Learnings
 
 JWT-based authentication and authorization
 
@@ -204,9 +203,9 @@ DOM lifecycle and script loading order
 
 Cross-device networking considerations
 
-Future Enhancements
+# Future Enhancements
 
-Edit QR design from dashboard
+Edit QR design from the dashboard
 
 Per-QR scan history and analytics
 
@@ -218,13 +217,13 @@ Role-based access control
 
 Production deployment (Render, Railway, MongoDB Atlas)
 
-Author
+# Author
 
 Kartik Kathalkar
 Full-Stack Developer
 Project built for learning and resume demonstration
 
-Final Note
+# Final Note
 
 DashQR is implemented as a production-style learning project with emphasis on clean architecture, scalability, and real-world behavior.
 The focus extends beyond QR generation to include lifecycle management, analytics, and secure user flows.
