@@ -38,10 +38,13 @@ async function loadQrs() {
         <td>${qr.status}</td>
         <td>${qr.totalScan}</td>
         <td class="d-flex gap-2">
-          <button class="btn btn-info btn-sm"
-            onclick="previewQR('${qr.shortCode}', '${qr.originalUrl}')">
+          <button onclick='previewQR(
+              "${qr.shortCode}",
+              ${JSON.stringify(qr.design).replace(/"/g, "&quot;")}
+            )'>
             Preview
           </button>
+
 
           ${
             qr.status === "active"
@@ -60,23 +63,53 @@ async function loadQrs() {
 }
 
 // ================= PREVIEW QR =================
-function previewQR(shortCode, originalUrl) {
-  if (!qrPreviewBox) {
-    console.error("qrPreviewBox not found in DOM")
-    return
-  }
+function previewQR(shortCode, design) {
+  if (!qrPreviewBox) return
 
   qrPreviewBox.innerHTML = ""
 
-  const qrUrl = `${AP}/q/${shortCode}`
+  const qrUrl = `http://192.168.1.4:5000/q/${shortCode}`
+
+  let dotsOptions = {
+    type: design.dotStyle || "square",
+    color: design.color || "#000000"
+  }
+
+  // Apply gradient if exists
+  if (design.gradient && design.gradient.length === 2) {
+    dotsOptions = {
+      type: design.dotStyle || "square",
+      gradient: {
+        type: "linear",
+        rotation: 0,
+        colorStops: [
+          { offset: 0, color: design.gradient[0] },
+          { offset: 1, color: design.gradient[1] }
+        ]
+      }
+    }
+  }
 
   const qrCode = new QRCodeStyling({
     width: 220,
     height: 220,
-    data: qrUrl
+    data: qrUrl,
+    dotsOptions,
+    cornersSquareOptions: {
+      type: design.cornerSquareStyle || "square",
+      color: design.color || "#000000"
+    },
+    cornersDotOptions: {
+      type: design.cornerDotStyle || "square",
+      color: design.color || "#000000"
+    },
+    backgroundOptions: {
+      color: design.bg || "#ffffff"
+    }
   })
 
   qrCode.append(qrPreviewBox)
+
   qrPreviewUrl.innerText = qrUrl
 
   const modal = new bootstrap.Modal(
