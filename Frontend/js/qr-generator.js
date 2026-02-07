@@ -92,7 +92,7 @@ document.getElementById("generateBtn").onclick = async () => {
   const data = await res.json()
 
   // 🌐 Gateway URL (PC IP for phone scanning)
-  const qrUrl = fetch(`https://dashqr-backend.onrender.com/q/${data.shortCode}`
+  const qrUrl = fetch(`https://dashqr-backend.onrender.com/q/${data.shortCode}`)
 
   // 🎨 Update QR Preview
   qrCode.update({
