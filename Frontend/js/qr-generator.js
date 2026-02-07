@@ -70,7 +70,7 @@ document.getElementById("generateBtn").onclick = async () => {
   }
 
   // 🔗 Create QR in backend
-  const res = await fetch(`https://dashqr-backend.onrender.com/api/qr`, {
+  const res = await fetch("https://dashqr-backend.onrender.com/api/qr", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
