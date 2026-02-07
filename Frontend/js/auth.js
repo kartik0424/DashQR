@@ -1,4 +1,4 @@
-const API = fetch(`${API_BASE_URL}/api/auth`)
+const API = fetch(`https://dashqr-backend.onrender.com/api/auth`)
 
 async function register() {
     const name = document.getElementById("name").value
