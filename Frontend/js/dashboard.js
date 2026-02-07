@@ -78,7 +78,7 @@ function previewQR(index) {
   qrPreviewBox.innerHTML = ""
 
   const design = qr.design || {}
-  const qrUrl = `http://192.168.1.4:5000/q/${qr.shortCode}`
+  const qrUrl = `https://dashqr-backend.onrender.com/q/${qr.shortCode}`
 
   let dotsOptions = {
     type: design.dotStyle || "square",
