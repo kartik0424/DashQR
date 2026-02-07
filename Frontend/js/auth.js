@@ -1,4 +1,4 @@
-const API = "http://localhost:5000/api/auth"
+const API = "fetch(`${API_BASE_URL}/api/auth"
 
 async function register() {
     const name = document.getElementById("name").value
