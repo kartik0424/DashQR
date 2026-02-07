@@ -68,7 +68,7 @@ function previewQR(shortCode, originalUrl) {
 
   qrPreviewBox.innerHTML = ""
 
-  const qrUrl = fetch(`${AP}/q/${shortCode}`
+  const qrUrl = fetch(`${AP}/q/${shortCode}`)
 
   const qrCode = new QRCodeStyling({
     width: 220,
