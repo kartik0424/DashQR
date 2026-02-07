@@ -99,32 +99,28 @@ Postman / Browser Fetch API
 
 
 ## Project Structure
-DashQR/
-│
-├── Backend/
-│ ├── controllers/
-│ ├── models/
-│ ├── routes/
-│ ├── middlewares/
-│ ├── app.js
-│ └── server.js
-│
-├── client/
-│ ├── generate.html
-│ ├── dashboard.html
-│ ├── login.html
-│ ├── register.html
-│ ├── css/
-│ └── js/
-│
-├── .env
-├── package.json
-└── README.md
+Backend/
+  controllers/
+  models/
+  routes/
+  middlewares/
+  app.js
+  server.js
+
+
+frontend/
+  generate.html
+  dashboard.html
+  login.html
+  register.html
+  css/
+  js/
+
 
 
 # Environment Variables
 
-## Create a .env file in the root directory:
+Create a .env file in the root directory:
 PORT=5000
 
 MONGO_URI=mongodb://127.0.0.1:27017/dashqr
